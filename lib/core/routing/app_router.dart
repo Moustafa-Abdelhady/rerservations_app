@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/routing/routes.dart';
-import 'package:reservations_app/features/login/ui/widgets/login_screen.dart';
+import 'package:reservations_app/features/login/ui/login_screen.dart';
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
 
 class AppRouter {

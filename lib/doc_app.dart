@@ -17,9 +17,9 @@ class DocApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Reservations App',
         theme: ThemeData(
-          primaryColor: ColorsManager.mainBlue,
-          scaffoldBackgroundColor: Colors.white,
-        ),
+            primaryColor: ColorsManager.mainBlue,
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: const AppBarTheme(backgroundColor: Colors.white)),
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
