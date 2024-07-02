@@ -59,9 +59,14 @@ dependencies:
   cached_network_image: ^3.3.1
     # to pike images
   file_picker: ^8.0.5
+    # to work with svgs
   flutter_svg: ^2.0.10+1
+  # to make a screenutil & responsive screens with platforms
   flutter_screenutil: ^5.9.3
+  # to generate a native splash screen
   flutter_native_splash: ^2.4.0
+  # to build system for dart code generation and modular compilation
+  build_runner: ^2.4.9
 
 dev_dependencies:
   flutter_test:
