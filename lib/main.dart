@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/app_router.dart';
 import 'package:reservations_app/doc_app.dart';
 
 void main() {
+  setUpGetIt();
   runApp(
     DocApp(
       appRouter: AppRouter(),

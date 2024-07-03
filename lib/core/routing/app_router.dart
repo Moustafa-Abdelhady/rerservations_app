@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/routes.dart';
+import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:reservations_app/features/login/logic/login_cubit/login_state.dart';
 import 'package:reservations_app/features/login/ui/login_screen.dart';
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -16,7 +20,10 @@ class AppRouter {
 
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => const LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
         );
 
       default:
