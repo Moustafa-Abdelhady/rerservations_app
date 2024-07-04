@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/routes.dart';
+import 'package:reservations_app/features/home/home_screen.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_state.dart';
 import 'package:reservations_app/features/login/ui/login_screen.dart';
@@ -16,6 +17,10 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
           builder: (_) => const OnboardingScreen(),
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
 
       case Routes.loginScreen:
