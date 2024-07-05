@@ -2,7 +2,11 @@ class ApiConstans {
   static const apiBaseUrl = "https://vcare.integration25.com/api/";
 
   static const String login = "auth/login";
+  static const String signup = "auth/register";
 }
+
+// 1-here you start added your constans like signup;
+// 2-go to ApiService and do your sign func and done signResponse then SignRequestBody
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";
