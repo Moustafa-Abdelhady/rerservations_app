@@ -4,6 +4,8 @@ import 'package:reservations_app/core/networking/api_service.dart';
 import 'package:reservations_app/core/networking/dio_factory.dart';
 import 'package:reservations_app/features/login/data/reposatory/login_repo.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:reservations_app/features/signup/data/reposatory/signup_repo.dart';
+import 'package:reservations_app/features/signup/logic/signup_cubit/signup_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -14,9 +16,14 @@ Future<void> setUpGetIt() async {
 
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
+  //registerLazySinglton => if i want to create one copy  for one time
+  //registerFactory => if i want to create many copies  for every time i want
+
   // login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
-  // home
+  // signup
+  getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
+  getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
 }
