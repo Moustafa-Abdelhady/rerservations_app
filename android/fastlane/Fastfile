@@ -1,0 +1,34 @@
+
+default_platform(:android)
+
+platform :android do
+  desc "Lane for Android Firebase App Distribution"
+  lane :firebase_distribution do
+    sh "flutter clean"
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+    firebase_app_distribution(
+    app: "1:272534137942:android:8bfd6a8674c13d5ad45ff7",
+    firebase_cli_token: "1//03tJ2fSHGe-RvCgYIARAAGAMSNwF-L9IrEyC7BNb6ZrQvEZLfqPk2c9f-OUnPpvVqEN6IXvVd9il2uCkbt__dLAPdPDmmXib2p5E",
+    android_artifact_type: "APK",
+    android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+    testers: "moustafasafy22@gmail.com",
+    groups: "qa-team, trusted-testers",
+    release_notes: "First Fastlane Firebase Distribution!!"
+  )
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+    crashlytics
+  
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :deploy do
+    gradle(task: "clean assembleRelease")
+    upload_to_play_store
+  end
+end
