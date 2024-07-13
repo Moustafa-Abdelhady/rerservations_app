@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 
@@ -23,13 +25,13 @@ class HomeTopBar extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        const CircleAvatar(
+        CircleAvatar(
           backgroundColor: ColorsManager.buttonLighterGrey,
           radius: 24,
-          child: Stack(
-            children: [
-              // Icon(''),
-              ],
+          child: SvgPicture.asset(
+            'assets/svgs/notfication_bill.svg',
+            fit: BoxFit.fill,
+            width: 25.w,
           ),
         )
       ],
