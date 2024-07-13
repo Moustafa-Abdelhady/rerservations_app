@@ -8,4 +8,5 @@ class ColorsManager {
   static const Color grey = Color(0xff757575);
   static const Color lighterGrey = Color(0xffC2C2C2);
   static const Color buttonLighterGrey = Color(0xFFF5F5F5);
+  static const Color lightBlue = Color(0xFFF4F8FF);
 }

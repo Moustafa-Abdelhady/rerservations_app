@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:reservations_app/core/helpers/spaces.dart';
+import 'package:reservations_app/features/home/ui/widgets/doc_speciality_list_view.dart';
+import 'package:reservations_app/features/home/ui/widgets/doc_speciality_see_all.dart';
 import 'package:reservations_app/features/home/ui/widgets/doctors_blue_container.dart';
+import 'package:reservations_app/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:reservations_app/features/home/ui/widgets/home_top_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +21,16 @@ class HomeScreen extends StatelessWidget {
           margin: const EdgeInsets.fromLTRB(20, 16, 20, 28),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [const HomeTopBar(), const DoctorBlueContainer()],
+            children: [
+              const HomeTopBar(),
+              const DoctorBlueContainer(),
+              verticalSpace(24),
+              const DocrorsSpecialitySeeAll(),
+              verticalSpace(16),
+              const DoctorSpecialityListView(),
+              verticalSpace(12),
+              const DoctorsListView(),
+            ],
           ),
         ),
       ),
