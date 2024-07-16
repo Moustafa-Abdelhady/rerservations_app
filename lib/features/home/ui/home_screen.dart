@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:reservations_app/core/helpers/spaces.dart';
+
+import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
+import 'package:reservations_app/features/home/logic/home_cubit/home_state.dart';
 import 'package:reservations_app/features/home/ui/widgets/doc_speciality_list_view.dart';
 import 'package:reservations_app/features/home/ui/widgets/doc_speciality_see_all.dart';
 import 'package:reservations_app/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:reservations_app/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:reservations_app/features/home/ui/widgets/home_top_bar.dart';
+import 'package:reservations_app/features/home/ui/widgets/specialization_and_doctors_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,9 +33,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(24),
               const DocrorsSpecialitySeeAll(),
               verticalSpace(16),
-              const DoctorSpecialityListView(),
-              verticalSpace(12),
-              const DoctorsListView(),
+              const SetupSpecializationAndDoctorsBlocBuilder(),
             ],
           ),
         ),
