@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:reservations_app/core/networking/api_constans.dart';
-
 import 'api_error_model.dart';
 
 // TODO: wallahy I will refactor this .. Omar Ahmed

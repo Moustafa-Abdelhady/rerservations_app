@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctors? doctorsModel;
@@ -21,18 +22,22 @@ class DoctorsListViewItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // CashedNetworkImage(
-          //   imageUrl: "assets/images/onboarding_doc.png",
+          // CachedNetworkImage(
+          //   width: 110.w,
+          //   height: 120.h,
+          //   imageUrl:
+          //       "https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050",
+          //   // fit: BoxFit.contain,
           //   progressIndicatorBuilder: (context, url, downloadProgress) =>
           //       CircularProgressIndicator(value: downloadProgress.progress),
-          //   errorWidget: (context, url, error) => Icon(Icons.error),
+          //   errorWidget: (context, url, error) => const Icon(Icons.error),
           // ),
           ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.asset(
               'assets/images/onboarding_doc.png',
-              width: 110.w,
-              height: 120.h,
+              width: 100.w,
+              height: 130.h,
               fit: BoxFit.cover,
             ),
           ),

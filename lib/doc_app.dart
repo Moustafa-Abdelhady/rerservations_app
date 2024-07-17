@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reservations_app/core/helpers/constants.dart';
 import 'package:reservations_app/core/routing/app_router.dart';
 import 'package:reservations_app/core/routing/routes.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
@@ -21,7 +22,7 @@ class DocApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(backgroundColor: Colors.white)),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.homeScreen,
+        initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
