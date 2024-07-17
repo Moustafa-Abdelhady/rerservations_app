@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:reservations_app/core/helpers/constants.dart';
+import 'package:reservations_app/core/helpers/shared_pref_helper.dart';
 
 class DioFactory {
   // private constructor as i don't want to allow creating an instance of this class
@@ -40,11 +42,15 @@ class DioFactory {
     );
   }
 
+  static void setTokenIntoHeaderAfterLogin(String token) async {
+    dio?.options.headers = {'Authantication': 'Bearer $token'};
+  }
+
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIxMTQ1NTkzLCJleHAiOjE3MjEyMzE5OTMsIm5iZiI6MTcyMTE0NTU5MywianRpIjoiV1BtODdWTksweDl2R093NSIsInN1YiI6IjE1MDAiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7YrgVvXvvnE7Jv2-VL9h7ghKGKnt3PsZF1ZfVOU8vP0',
+          'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
 }

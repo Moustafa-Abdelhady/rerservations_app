@@ -7,14 +7,14 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _homeRepo;
   HomeCubit(this._homeRepo) : super(const HomeState.initial());
 
-  void getSpecialization() async {
+  void getSpecializations() async {
     emit(const HomeState.specializationLoading());
 
     final response = await _homeRepo.getSpecialization();
     response.when(success: (specializationResponseModel) {
       emit(HomeState.specializationSuccess(specializationResponseModel));
     }, failure: (errorHandler) {
-      emit(HomeState.specializationFailure(errorHandler));
+      emit(HomeState.specializationError(errorHandler));
     });
   }
 }

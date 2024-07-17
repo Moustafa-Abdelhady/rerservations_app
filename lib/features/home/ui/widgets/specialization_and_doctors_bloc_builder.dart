@@ -19,16 +19,23 @@ class SetupSpecializationAndDoctorsBlocBuilder extends StatelessWidget {
             current is SpecializationError,
         builder: (context, state) {
           return state.maybeWhen(
-              specializationLoading: () => setupLoading(),
-              specializationSuccess: (specializationResponseModel) {
-                var specializationList =
-                    specializationResponseModel.specializationDataList;
-                return setupSuccess(specializationList);
-              },
-              specializationFailure: (errorHandler) => setupFailure(),
-              orElse: () {
-                return const SizedBox.shrink();
-              });
+            specializationLoading: () => setupLoading(),
+            specializationSuccess: (specializationResponseModel) {
+              var specializationList =
+                  specializationResponseModel.specializationDataList;
+              return setupSuccess(specializationList);
+            },
+            specializationFailure: (errorHandler) => setupFailure(),
+            orElse: () {
+              return const SizedBox(
+                width: 300,
+                height: 300,
+                child: Center(
+                  child: Text('There\'s an Error'),
+                ),
+              );
+            },
+          );
         });
   }
 
