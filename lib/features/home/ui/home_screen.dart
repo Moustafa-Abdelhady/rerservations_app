@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 
 import 'package:reservations_app/features/home/ui/widgets/doc_speciality_see_all.dart';
+import 'package:reservations_app/features/home/ui/widgets/doctors_bloc_builder.dart';
 import 'package:reservations_app/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:reservations_app/features/home/ui/widgets/home_top_bar.dart';
 import 'package:reservations_app/features/home/ui/widgets/specialization_and_doctors_bloc_builder.dart';
@@ -26,8 +27,10 @@ class HomeScreen extends StatelessWidget {
               const DoctorBlueContainer(),
               verticalSpace(24),
               const DocrorsSpecialitySeeAll(),
-              verticalSpace(16),
+              verticalSpace(18),
               const SetupSpecializationAndDoctorsBlocBuilder(),
+              verticalSpace(10),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

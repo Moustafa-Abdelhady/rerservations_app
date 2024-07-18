@@ -74,6 +74,8 @@ dependencies:
   shared_preferences: ^2.2.3
   # to provide api to store data is a secure storage to store your token 
   flutter_secure_storage: ^4.2.1
+  # easy way to add shimmer effect
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
