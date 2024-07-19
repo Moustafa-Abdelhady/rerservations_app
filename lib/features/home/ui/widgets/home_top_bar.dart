@@ -2,12 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reservations_app/core/helpers/constants.dart';
+import 'package:reservations_app/core/helpers/extentions.dart';
 import 'package:reservations_app/core/helpers/shared_pref_helper.dart';
+import 'package:reservations_app/core/helpers/spaces.dart';
+import 'package:reservations_app/core/routing/routes.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 
-class HomeTopBar extends StatelessWidget {
+class HomeTopBar extends StatefulWidget {
   const HomeTopBar({super.key});
+
+  @override
+  State<HomeTopBar> createState() => _HomeTopBarState();
+}
+
+class _HomeTopBarState extends State<HomeTopBar> {
+  String? name;
+
+  userName() async {
+    name = await SharedPrefHelper.getString(SharedPrefKeys.userName);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userName();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +38,7 @@ class HomeTopBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi, ${userName()}!',
+              'Hi, ${name} !',
               style: TextStyles.font18BlueBold,
             ),
             Text(
@@ -35,12 +56,18 @@ class HomeTopBar extends StatelessWidget {
             fit: BoxFit.fill,
             width: 25.w,
           ),
+        ),
+        horizontalSpace(10),
+        GestureDetector(
+          onTap: () async {
+            await SharedPrefHelper.removeData(SharedPrefKeys.userName);
+            await SharedPrefHelper.clearAllSecuredData();
+            context.pushNamedAndRemoveUntil(Routes.loginScreen,
+                predicate: (route) => false);
+          },
+          child: const Icon(Icons.logout),
         )
       ],
     );
-  }
-
-  static userName() async {
-    await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
   }
 }
