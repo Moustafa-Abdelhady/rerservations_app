@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:reservations_app/core/helpers/constants.dart';
+import 'package:reservations_app/core/helpers/shared_pref_helper.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 
@@ -15,7 +17,7 @@ class HomeTopBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi, Mostafa!',
+              'Hi, ${userName()}!',
               style: TextStyles.font18BlueBold,
             ),
             Text(
@@ -36,5 +38,9 @@ class HomeTopBar extends StatelessWidget {
         )
       ],
     );
+  }
+
+  static userName() async {
+    await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
   }
 }

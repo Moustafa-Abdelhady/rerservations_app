@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
-import 'package:reservations_app/features/home/ui/widgets/doctors_list_view_item.dart';
+import 'package:reservations_app/features/home/ui/widgets/doctors_list/doctors_list_view_item.dart';
 
 class DoctorsListView extends StatelessWidget {
   final List<Doctors?>? doctorsList;
