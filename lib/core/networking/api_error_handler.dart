@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:reservations_app/core/networking/api_constans.dart';
-
 import 'api_error_model.dart';
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
@@ -145,7 +144,7 @@ ApiErrorModel _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return ApiErrorModel.fromJson(error.response!.data);
+        return ApiErrorModel.fromJson(error.response?.data);
       } else {
         return DataSource.DEFAULT.getFailure();
       }

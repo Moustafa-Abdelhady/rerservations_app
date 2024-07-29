@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/core/widgets/custom_button.dart';
-import 'package:reservations_app/features/login/data/models/login_request_body.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
 import 'package:reservations_app/features/login/ui/widgets/do_not_have_account_text.dart';
 import 'package:reservations_app/features/login/ui/widgets/email_and_pass.dart';
