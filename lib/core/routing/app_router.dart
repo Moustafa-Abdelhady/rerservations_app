@@ -48,6 +48,7 @@ class AppRouter {
         );
       case Routes.doctorDetails:
         return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
           builder: (_) => const DoctorDetails(),
         );
 
