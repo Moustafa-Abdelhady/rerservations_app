@@ -49,10 +49,36 @@ class _DoctorPageviewState extends State<DoctorPageview>
               controller: tabController,
               children: [
                 Container(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(widget.doctorsInfo!.name!)],
-                )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Name : ${widget.doctorsInfo!.name!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                      Text(
+                        'City : ${widget.doctorsInfo!.city!.cityName!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                      Text(
+                        'Gender : ${widget.doctorsInfo!.gender!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                      Text(
+                        'Mail : ${widget.doctorsInfo!.email!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                      Text(
+                        'Degree : ${widget.doctorsInfo!.degree!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                      Text(
+                        'Name : ${widget.doctorsInfo!.name!}',
+                        style: TextStyles.font15DarkBlueBold,
+                      ),
+                    ],
+                  ),
+                ),
                 Container(
                   height: 50,
                   width: 50,
