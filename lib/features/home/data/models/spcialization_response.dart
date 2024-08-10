@@ -44,6 +44,10 @@ class Doctors {
   String? address;
   @JsonKey(name: 'appoint_price')
   int? price;
+  @JsonKey(name: 'start_time')
+  String? startTime;
+  @JsonKey(name: 'end_time')
+  String? endTime;
   String? degree;
   City? city;
 
@@ -56,6 +60,8 @@ class Doctors {
     this.gender,
     this.address,
     this.price,
+    this.startTime,
+    this.endTime,
     this.degree,
     this.city,
   });
