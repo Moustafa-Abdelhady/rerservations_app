@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
@@ -67,7 +65,7 @@ class GoogleMapsTabBar extends StatefulWidget {
 class _GoogleMapsTabBarState extends State<GoogleMapsTabBar> {
   Completer<GoogleMapController> mapController = Completer();
 
-  static final CameraPosition _initialCameraPosition =
+  static const CameraPosition _initialCameraPosition =
       CameraPosition(target: LatLng(33.935074, 36.289590), zoom: 14.4746);
 
   @override

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reservations_app/core/helpers/spaces.dart';
-import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/features/doctor_details/ui/doctor_cover_image.dart';
 import 'package:reservations_app/features/doctor_details/ui/doctor_tapbar_view.dart';
