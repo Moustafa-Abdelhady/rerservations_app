@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:reservations_app/features/signup/data/models/signup_request_body.dart';
-import 'package:reservations_app/features/signup/data/models/signup_response.dart';
+
 import 'package:reservations_app/features/signup/data/reposatory/signup_repo.dart';
 import 'package:reservations_app/features/signup/logic/signup_cubit/signup_state.dart';
 

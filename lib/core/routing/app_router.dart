@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/routes.dart';
+import 'package:reservations_app/features/doctor_details/ui/doctor_details_screen.dart';
+import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
 import 'package:reservations_app/features/home/ui/home_screen.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
-import 'package:reservations_app/features/login/logic/login_cubit/login_state.dart';
+
 import 'package:reservations_app/features/login/ui/login_screen.dart';
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +13,7 @@ import 'package:reservations_app/features/signup/logic/signup_cubit/signup_cubit
 import 'package:reservations_app/features/signup/ui/signup_screen.dart';
 
 class AppRouter {
-  Route generateRoute(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     // this arguments to be passed in any screen like this (argument as className)
     final arguments = settings.arguments;
 
@@ -39,17 +41,19 @@ class AppRouter {
 
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getSpecializations(),
+            child: const HomeScreen(),
+          ),
+        );
+      case Routes.doctorDetails:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const DoctorDetails(),
         );
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }

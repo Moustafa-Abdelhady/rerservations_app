@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:reservations_app/core/helpers/spaces.dart';
-import 'package:reservations_app/features/home/ui/widgets/doc_speciality_list_view.dart';
+
 import 'package:reservations_app/features/home/ui/widgets/doc_speciality_see_all.dart';
+import 'package:reservations_app/features/home/ui/widgets/doctors_list/doctors_bloc_builder.dart';
 import 'package:reservations_app/features/home/ui/widgets/doctors_blue_container.dart';
-import 'package:reservations_app/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:reservations_app/features/home/ui/widgets/home_top_bar.dart';
+import 'package:reservations_app/features/home/ui/widgets/specializations_list/specialization_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +17,6 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          // color: Colors.amber,
           width: double
               .infinity, // this is cause i will make a column and the column takes full heigh by default but not takes full width
           margin: const EdgeInsets.fromLTRB(20, 16, 20, 28),
@@ -26,10 +27,10 @@ class HomeScreen extends StatelessWidget {
               const DoctorBlueContainer(),
               verticalSpace(24),
               const DocrorsSpecialitySeeAll(),
-              verticalSpace(16),
-              const DoctorSpecialityListView(),
-              verticalSpace(12),
-              const DoctorsListView(),
+              verticalSpace(18),
+              const SetupSpecializationBlocBuilder(),
+              verticalSpace(8),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

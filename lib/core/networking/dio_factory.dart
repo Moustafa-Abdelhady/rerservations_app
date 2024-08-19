@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:reservations_app/core/helpers/constants.dart';
+import 'package:reservations_app/core/helpers/shared_pref_helper.dart';
 
 class DioFactory {
   // private constructor as i don't want to allow creating an instance of this class
@@ -18,6 +20,7 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+      addDioHeaders();
       addDioIntereceptor();
 
       return dio!;
@@ -39,9 +42,15 @@ class DioFactory {
     );
   }
 
+  static void setTokenIntoHeaderAfterLogin(String token) async {
+    dio?.options.headers = {'Authantication': 'Bearer $token'};
+  }
+
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 }
