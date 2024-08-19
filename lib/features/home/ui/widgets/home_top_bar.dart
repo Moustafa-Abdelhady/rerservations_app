@@ -38,7 +38,7 @@ class _HomeTopBarState extends State<HomeTopBar> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi, ${name} !',
+              'Hi, $name !',
               style: TextStyles.font18BlueBold,
             ),
             Text(
