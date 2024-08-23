@@ -13,19 +13,23 @@ class HomeCubit extends Cubit<HomeState> {
   List<SpecializationData?>? specializationsList = [];
 
   void getSpecializations() async {
-    emit(const HomeState.specializationLoading());
+    try {
+      emit(const HomeState.specializationLoading());
 
-    final response = await _homeRepo.getSpecialization();
-    response.when(success: (specializationResponseModel) {
-      specializationsList =
-          specializationResponseModel.specializationDataList ?? [];
-      // get the doctors list for first ele in specialization by default
-      getDoctorsList(specializationId: specializationsList?.first?.id);
+      final response = await _homeRepo.getSpecialization();
+      response.when(success: (specializationResponseModel) {
+        specializationsList =
+            specializationResponseModel.specializationDataList ?? [];
+        // get the doctors list for first ele in specialization by default
+        getDoctorsList(specializationId: specializationsList?.first?.id);
 
-      emit(HomeState.specializationSuccess(specializationsList));
-    }, failure: (errorHandler) {
-      emit(HomeState.specializationError(errorHandler));
-    });
+        emit(HomeState.specializationSuccess(specializationsList));
+      }, failure: (errorHandler) {
+        emit(HomeState.specializationError(errorHandler));
+      });
+    } on Exception catch (e) {
+      print(e.toString());
+    }
   }
 
   /// returns the list of doctors based on the specilization id without filtering.

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
+
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
-class SpecialityListViewItem extends StatelessWidget {
+import '../../../data/data_source/doctor_speciality_list_img.dart';
+
+class SpecialityListViewItem extends StatefulWidget {
   final SpecializationData? specializationData;
   final int itemIndex;
   final int selectedIndex;
@@ -20,48 +23,57 @@ class SpecialityListViewItem extends StatelessWidget {
   });
 
   @override
+  State<SpecialityListViewItem> createState() => _SpecialityListViewItemState();
+}
+
+class _SpecialityListViewItemState extends State<SpecialityListViewItem> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.only(
-        start: itemIndex == 0 ? 0 : 24.w,
+        start: widget.itemIndex == 0 ? 0 : 24.w,
       ),
-      child: Column(
-        children: [
-          itemIndex == selectedIndex
-              ? Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: ColorsManager.darkBlue,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            widget.itemIndex == widget.selectedIndex
+                ? Container(
+                    height: 50.h,
+                    // width: 60.w,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: ColorsManager.simpledarkBlue,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
-                  ),
-                  child: CircleAvatar(
+                    child: Image.asset(
+                      // 'assets/svgs/docdoc_logo.svg',
+                      '${doctorSpecialityListImg[widget.itemIndex].img}',
+                      fit: BoxFit.cover,
+                      height: 45.h,
+                      // width: 30.w,
+                    ),
+                  )
+                //   })
+
+                : CircleAvatar(
                     radius: 30,
                     backgroundColor: ColorsManager.lightBlue,
-                    child: SvgPicture.asset(
-                      'assets/svgs/docdoc_logo.svg',
-                      height: 42.h,
-                      width: 42.w,
+                    child: Image.asset(
+                      '${doctorSpecialityListImg[widget.itemIndex].img}',
+                      height: 35.h,
+                      // width: 40.w,
                     ),
                   ),
-                )
-              : CircleAvatar(
-                  radius: 28,
-                  backgroundColor: ColorsManager.lightBlue,
-                  child: SvgPicture.asset(
-                    'assets/svgs/docdoc_logo.svg',
-                    height: 40.h,
-                    width: 40.w,
-                  ),
-                ),
-          verticalSpace(10),
-          Text(
-            specializationData?.name ?? 'Spcialization',
-            style: itemIndex == selectedIndex
-                ? TextStyles.font15DarkBlueBold
-                : TextStyles.font13DarkBlueregular,
-          )
-        ],
+            verticalSpace(10),
+            Text(
+              widget.specializationData?.name ?? 'Spcialization',
+              style: widget.itemIndex == widget.selectedIndex
+                  ? TextStyles.font15DarkBlueBold
+                  : TextStyles.font13DarkBlueregular,
+            )
+          ],
+        ),
       ),
     );
   }
