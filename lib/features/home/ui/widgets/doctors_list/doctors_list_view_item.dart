@@ -25,8 +25,9 @@ class DoctorsListViewItem extends StatelessWidget {
           CachedNetworkImage(
             width: 110.w,
             height: 120.h,
-            imageUrl:
-                "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain",
+            imageUrl: doctorsModel!.gender == 'female'
+                ? "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain"
+                : "https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-isolated-white-background-handsome-model-portrait-31871541.jpg",
             // fit: BoxFit.contain,
             progressIndicatorBuilder: (context, url, downloadProgress) {
               return Shimmer.fromColors(
