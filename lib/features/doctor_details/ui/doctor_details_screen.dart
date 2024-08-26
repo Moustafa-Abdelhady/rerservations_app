@@ -21,7 +21,9 @@ class DoctorDetails extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const DoctorCoverImage(),
+          DoctorCoverImage(
+            gender: doctorDetail?.gender,
+          ),
           Expanded(
             child: DoctorTabBarView(
               doctorsInfo: doctorDetail,
