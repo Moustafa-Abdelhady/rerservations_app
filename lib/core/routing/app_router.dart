@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/routes.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/book_appointment_view.dart';
 import 'package:reservations_app/features/doctor_details/ui/doctor_details_screen.dart';
 import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
 import 'package:reservations_app/features/home/ui/home_screen.dart';
@@ -50,6 +51,11 @@ class AppRouter {
         return MaterialPageRoute(
           settings: RouteSettings(arguments: arguments),
           builder: (_) => const DoctorDetails(),
+        );
+      case Routes.bookAppointment:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const BookAppointmentView(),
         );
 
       default:
