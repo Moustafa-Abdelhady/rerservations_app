@@ -20,6 +20,7 @@ class DoctorDetails extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           DoctorCoverImage(
             gender: doctorDetail?.gender,
