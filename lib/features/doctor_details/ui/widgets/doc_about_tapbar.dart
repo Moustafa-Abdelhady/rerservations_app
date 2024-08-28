@@ -14,57 +14,52 @@ class DoctorAboutTabBar extends StatelessWidget {
   Widget build(
     BuildContext context,
   ) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          verticalSpace(10),
-          Text(
-            'Name : ${doctorsAbout?.name}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'City : ${doctorsAbout?.city!.cityName}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'Gender : ${doctorsAbout?.gender}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'Mail : ${doctorsAbout?.email}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'Degree : ${doctorsAbout?.degree}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'Start time : ${doctorsAbout?.startTime}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(10),
-          Text(
-            'End time : ${doctorsAbout?.endTime}',
-            style: TextStyles.font15DarkBlueBold,
-          ),
-          verticalSpace(60),
-          Center(
-            child: MakeAnAppointmentBtn(
-              text: 'Make An Appointment',
-              onPressed: () {
-                context.pushNamed(Routes.bookAppointment,
-                    arguments: doctorsAbout);
-              },
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpace(10),
+            textRech('Name : ', doctorsAbout?.name),
+            verticalSpace(10),
+            textRech('City : ', doctorsAbout?.city!.cityName),
+            verticalSpace(10),
+            textRech('Gender : ', doctorsAbout?.gender),
+            verticalSpace(10),
+            textRech('Mail : ', doctorsAbout?.email),
+            verticalSpace(10),
+            textRech('Degree : ', doctorsAbout?.degree),
+            verticalSpace(10),
+            textRech('Start time : ', doctorsAbout?.startTime),
+            verticalSpace(10),
+            textRech('End time : ', doctorsAbout?.endTime),
+            verticalSpace(30),
+            Center(
+              child: MakeAnAppointmentBtn(
+                text: 'Make An Appointment',
+                onPressed: () {
+                  context.pushNamed(Routes.bookAppointment,
+                      arguments: doctorsAbout);
+                },
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
+  }
+
+  Widget textRech(String? title, String? text) {
+    return Text.rich(TextSpan(children: [
+      TextSpan(
+        text: title,
+        style: TextStyles.font15BlueMeduim,
+      ),
+      TextSpan(
+        text: text,
+        style: TextStyles.font15DarkBlueBold,
+      ),
+    ]));
   }
 }

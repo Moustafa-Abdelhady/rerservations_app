@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 
 class MakeAnAppointmentBtn extends StatelessWidget {
@@ -8,6 +9,7 @@ class MakeAnAppointmentBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 300.w,
       decoration: const BoxDecoration(
           color: ColorsManager.mainBlue,
           borderRadius: const BorderRadius.all(Radius.circular(12))),
