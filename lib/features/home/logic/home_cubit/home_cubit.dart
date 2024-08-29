@@ -24,8 +24,8 @@ class HomeCubit extends Cubit<HomeState> {
         getDoctorsList(specializationId: specializationsList?.first?.id);
 
         emit(HomeState.specializationSuccess(specializationsList));
-      }, failure: (errorHandler) {
-        emit(HomeState.specializationError(errorHandler));
+      }, failure: (apiErrorModel) {
+        emit(HomeState.specializationError(apiErrorModel));
       });
     } on Exception catch (e) {
       print(e.toString());
@@ -40,7 +40,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (!specializationDoctorsList.isNullOrEmpty()) {
       emit(HomeState.doctorSuccess(specializationDoctorsList));
     } else {
-      emit(HomeState.doctorsError(ErrorHandler.handle('No Doctors Found')));
+      emit(const HomeState.doctorsError());
     }
   }
 

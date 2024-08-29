@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reservations_app/core/networking/api_error_handler.dart';
+import 'package:reservations_app/core/networking/api_error_model.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
 part 'home_state.freezed.dart';
@@ -15,12 +16,11 @@ class HomeState with _$HomeState {
           List<SpecializationData?>? specializationDataList) =
       SpecializationSuccess;
 
-  const factory HomeState.specializationError(ErrorHandler error) =
+  const factory HomeState.specializationError(ApiErrorModel apiErrorModel) =
       SpecializationError;
 
   // Doctors States
   const factory HomeState.doctorSuccess(List<Doctors?>? doctorsList) =
       DoctorsSuccess;
-  const factory HomeState.doctorsError(ErrorHandler errorHandler) =
-      DoctorsError;
+  const factory HomeState.doctorsError() = DoctorsError;
 }
