@@ -18,7 +18,7 @@ class LoginCubit extends Cubit<LoginState> {
   final formKey = GlobalKey<FormState>();
 
   void emitLoginState() async {
-    emit(const LoginState.loading());
+    emit(const LoginState.loginLoading());
 
     final response = await _loginRepo.login(LoginRequestBody(
       email: emailController.text,
@@ -31,10 +31,10 @@ class LoginCubit extends Cubit<LoginState> {
           loginResponse.userData?.token ?? '',
           loginResponse.userData?.userName ?? 'User',
         );
-        emit(LoginState.success(loginResponse));
+        emit(LoginState.loginSuccess(loginResponse));
       },
-      failure: (error) {
-        emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
+      failure: (apiErrorModel) {
+        emit(LoginState.loginError(apiErrorModel));
       },
     );
   }
