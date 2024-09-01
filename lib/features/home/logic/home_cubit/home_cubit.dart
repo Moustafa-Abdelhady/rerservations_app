@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservations_app/core/helpers/extentions.dart';
-import 'package:reservations_app/core/networking/api_error_handler.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
 import 'package:reservations_app/features/home/data/repos/home_repos.dart';
@@ -28,7 +27,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.specializationError(apiErrorModel));
       });
     } on Exception catch (e) {
-      print(e.toString());
+      print(e);
     }
   }
 

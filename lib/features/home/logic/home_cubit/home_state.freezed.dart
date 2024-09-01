@@ -843,7 +843,7 @@ class _$DoctorsSuccessImpl implements DoctorsSuccess {
     TResult Function()? specializationLoading,
     TResult Function(List<SpecializationData?>? specializationDataList)?
         specializationSuccess,
-    TResult Function(ApiErrorModel apiErrorModelr)? specializationError,
+    TResult Function(ApiErrorModel apiErrorModel)? specializationError,
     TResult Function(List<Doctors?>? doctorsList)? doctorSuccess,
     TResult Function()? doctorsError,
     required TResult orElse(),
