@@ -21,10 +21,10 @@ class CustomAppBarWidget extends StatelessWidget {
         Container(
           width: 44.w,
           height: 44.h,
-          decoration: BoxDecoration(
-            border: Border.all(color: ColorsManager.grey),
-            borderRadius: BorderRadius.circular(10.r),
-          ),
+          // decoration: BoxDecoration(
+          //   border: Border.all(color: ColorsManager.grey),
+          //   borderRadius: BorderRadius.circular(10.r),
+          // ),
           child: IconButton(
             onPressed: () => context.pop(),
             icon: Icon(
