@@ -1,14 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/phases_list_view.dart';
+import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
-class BookAppointmentBody extends StatelessWidget {
-  const BookAppointmentBody({super.key});
+class BookAppointmentBody extends StatefulWidget {
+  const BookAppointmentBody({super.key, required this.doctorInfo});
+
+  final Doctors? doctorInfo;
+
+  @override
+  State<BookAppointmentBody> createState() => _BookAppointmentBodyState();
+}
+
+class _BookAppointmentBodyState extends State<BookAppointmentBody>
+    with TickerProviderStateMixin {
+  late PageController pageViewController;
+
+  int _currentDate = 0;
+
+  DateTime? selectDateTime;
+
+  String? noteThis;
+
+  @override
+  void initState() {
+    super.initState();
+
+    pageViewController = PageController();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [CustomAppBarWidget(text: 'Book Appointment')],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const CustomAppBarWidget(text: 'Book Appointment'),
+          verticalSpace(24),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: SizedBox(height: 60.h, child: const PhasesListView()),
+          )
+        ],
+      ),
     );
   }
 }
