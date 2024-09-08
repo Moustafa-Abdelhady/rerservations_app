@@ -3,6 +3,8 @@ import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/styles.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/appointment_type.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/available_time_selection.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/select_date.dart';
 
 class DateAndTimePage extends StatelessWidget {
@@ -45,7 +47,22 @@ class DateAndTimePage extends StatelessWidget {
             ],
           ),
           verticalSpace(24.h),
-          const SelectDateWidget(),
+          SelectDateWidget(
+            onDateChanged: (val) {},
+          ),
+          verticalSpace(24.h),
+          AvailableTimeSelection(
+            onChanged: (val) {},
+          ),
+          verticalSpace(24.h),
+          Text(
+            'Appointment Type',
+            style: TextStyles.font15DarkBlueBold,
+          ),
+          verticalSpace(14),
+          AppointmentType(
+            onChanged: onNoteChanged,
+          )
         ],
       ),
     );
