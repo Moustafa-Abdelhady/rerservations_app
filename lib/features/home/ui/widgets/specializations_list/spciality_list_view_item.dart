@@ -48,7 +48,7 @@ class _SpecialityListViewItemState extends State<SpecialityListViewItem> {
                     ),
                     child: Image.asset(
                       // 'assets/svgs/docdoc_logo.svg',
-                      '${doctorSpecialityListImg[widget.itemIndex].img}',
+                      doctorSpecialityListImg[widget.itemIndex].img,
                       fit: BoxFit.cover,
                       height: 45.h,
                       // width: 30.w,
@@ -60,7 +60,7 @@ class _SpecialityListViewItemState extends State<SpecialityListViewItem> {
                     radius: 30,
                     backgroundColor: ColorsManager.lightBlue,
                     child: Image.asset(
-                      '${doctorSpecialityListImg[widget.itemIndex].img}',
+                      doctorSpecialityListImg[widget.itemIndex].img,
                       height: 35.h,
                       // width: 40.w,
                     ),

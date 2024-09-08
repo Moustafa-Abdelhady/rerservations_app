@@ -11,7 +11,7 @@ class PhasesListView extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<PhasesListView> {
-  int _currentPageIndex = 0;
+  final int _currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {

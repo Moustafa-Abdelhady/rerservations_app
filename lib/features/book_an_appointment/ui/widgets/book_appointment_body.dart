@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/date_and_time_page.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/phases_list_view.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
@@ -18,8 +19,8 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
     with TickerProviderStateMixin {
   late PageController pageViewController;
 
-  int _currentDate = 0;
-
+  final int _currentDate = 0;
+  int _currentPageIndex = 0;
   DateTime? selectDateTime;
 
   String? noteThis;
@@ -42,6 +43,24 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w),
             child: SizedBox(height: 60.h, child: const PhasesListView()),
+          ),
+          verticalSpace(24),
+          Container(
+            constraints: BoxConstraints(
+              minHeight: 379.h,
+              maxHeight: 640.h,
+              minWidth: 329.w,
+              maxWidth: 329.w,
+            ),
+            child: PageView(
+              controller: pageViewController,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (val) {
+                _currentPageIndex = val;
+                setState(() {});
+              },
+              children: [DateAndTimePage(onNoteChanged: (data) {})],
+            ),
           )
         ],
       ),

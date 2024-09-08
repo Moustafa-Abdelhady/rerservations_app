@@ -12,7 +12,7 @@ class MakeAnAppointmentBtn extends StatelessWidget {
       width: 300.w,
       decoration: const BoxDecoration(
           color: ColorsManager.mainBlue,
-          borderRadius: const BorderRadius.all(Radius.circular(12))),
+          borderRadius: BorderRadius.all(Radius.circular(12))),
       // margin: const EdgeInsetsDirectional.only(start: 24, end: 24, bottom: 16),
       child: ElevatedButton(
         onPressed: onPressed,

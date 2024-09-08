@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:reservations_app/core/networking/api_error_handler.dart';
 import 'package:reservations_app/core/networking/api_error_model.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 

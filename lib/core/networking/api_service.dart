@@ -4,7 +4,6 @@ import 'package:reservations_app/features/login/data/models/login_request_body.d
 import 'package:reservations_app/features/login/data/models/login_response.dart';
 import 'package:reservations_app/features/signup/data/models/signup_request_body.dart';
 import 'package:reservations_app/features/signup/data/models/signup_response.dart';
-import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 //كل ماكتب فانكشن هنا هتعمل ايررور علشان لازم اعمل الكود بتاع البيلد علشان يسمع
 

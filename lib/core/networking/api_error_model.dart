@@ -1,6 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:reservations_app/core/helpers/extentions.dart';
-import 'package:reservations_app/features/doctor_details/ui/widgets/doc_about_tapbar.dart';
 part 'api_error_model.g.dart';
 
 @JsonSerializable()

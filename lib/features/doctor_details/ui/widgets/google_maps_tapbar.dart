@@ -19,9 +19,8 @@ class _GoogleMapsTabBarState extends State<GoogleMapsTabBar> {
 
   static Position? position;
 
-  static final CameraPosition _initialCameraPosition = const CameraPosition(
-      target: const LatLng(26.75488111162714, 33.93677443662552),
-      zoom: 14.4746);
+  static const CameraPosition _initialCameraPosition = CameraPosition(
+      target: LatLng(26.75488111162714, 33.93677443662552), zoom: 14.4746);
 
   Future<void> getMyCurrentLocation() async {
     try {
