@@ -34,7 +34,7 @@ class ThreePhasesToBookAppoint extends StatelessWidget {
                   child: Center(
                     child: Text(
                       number,
-                      style: TextStyles.font12BlueRegular.copyWith(
+                      style: TextStyles.font13DarkBlueregular.copyWith(
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
                       ),
@@ -44,7 +44,7 @@ class ThreePhasesToBookAppoint extends StatelessWidget {
                 verticalSpace(8),
                 Text(
                   text,
-                  style: TextStyles.font12BlueRegular.copyWith(
+                  style: TextStyles.font13DarkBlueregular.copyWith(
                     color: textColor ?? ColorsManager.darkBlue,
                   ),
                   textAlign: TextAlign.center,

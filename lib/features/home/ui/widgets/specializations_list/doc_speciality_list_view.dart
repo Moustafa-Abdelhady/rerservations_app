@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reservations_app/features/home/data/data_source/doctor_speciality_list_img.dart';
 
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';

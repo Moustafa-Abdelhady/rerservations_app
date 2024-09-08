@@ -5,7 +5,6 @@ import 'package:reservations_app/core/routing/routes.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/features/doctor_details/ui/widgets/make_an_appoint_btn.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
-import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
 
 class DoctorAboutTabBar extends StatelessWidget {
   const DoctorAboutTabBar({super.key, this.doctorsAbout});
