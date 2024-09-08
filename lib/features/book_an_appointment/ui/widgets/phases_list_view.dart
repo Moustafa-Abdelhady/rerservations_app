@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/three_phase_to_book.dart';
 

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/date_and_time_page.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/payment_screen.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/phases_list_view.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
@@ -48,7 +49,7 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
           Container(
             constraints: BoxConstraints(
               minHeight: 379.h,
-              maxHeight: 640.h,
+              maxHeight: 680.h,
               minWidth: 329.w,
               maxWidth: 329.w,
             ),
@@ -59,7 +60,21 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
                 _currentPageIndex = val;
                 setState(() {});
               },
-              children: [DateAndTimePage(onNoteChanged: (data) {})],
+              children: [
+                DateAndTimePage(
+                  onNoteChanged: (val) {
+                    setState(() {
+                      noteThis = val;
+                    });
+                  },
+                  onDateTimeConfirm: (val) {
+                    setState(() {
+                      selectDateTime = val;
+                    });
+                  },
+                ),
+                const PaymentPage()
+              ],
             ),
           )
         ],
