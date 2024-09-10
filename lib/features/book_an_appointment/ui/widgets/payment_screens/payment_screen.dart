@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({super.key});
+  const PaymentPage({super.key, required this.onChanged});
+
+  final ValueChanged<String> onChanged;
 
   @override
   State<PaymentPage> createState() => _PaymentPageState();

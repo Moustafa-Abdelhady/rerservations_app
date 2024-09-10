@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
-import 'package:reservations_app/features/book_an_appointment/ui/widgets/date_and_time_page.dart';
-import 'package:reservations_app/features/book_an_appointment/ui/widgets/payment_screen.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/date_and_time_widgets/date_and_time_page.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/payment_screens/payment_screen.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/phases_list_view.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/three_phase_to_book.dart';
+import 'package:reservations_app/features/doctor_details/ui/widgets/make_an_appoint_btn.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
 class BookAppointmentBody extends StatefulWidget {
@@ -21,9 +23,9 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
   late PageController pageViewController;
 
   final int _currentDate = 0;
-  int _currentPageIndex = 0;
+  int currentPageIndex = 0;
   DateTime? selectDateTime;
-
+  String? paymentMethod;
   String? noteThis;
 
   @override
@@ -42,8 +44,12 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
           const CustomAppBarWidget(text: 'Book Appointment'),
           verticalSpace(24),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.w),
-            child: SizedBox(height: 60.h, child: const PhasesListView()),
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            child: SizedBox(
+                height: 60.h,
+                child: PhasesListView(
+                  currentPageIndex: currentPageIndex,
+                )),
           ),
           verticalSpace(24),
           Container(
@@ -57,7 +63,7 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
               controller: pageViewController,
               scrollDirection: Axis.horizontal,
               onPageChanged: (val) {
-                _currentPageIndex = val;
+                currentPageIndex = val;
                 setState(() {});
               },
               children: [
@@ -73,9 +79,29 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
                     });
                   },
                 ),
-                const PaymentPage()
+                PaymentPage(
+                  onChanged: (val) {
+                    setState(() {
+                      paymentMethod = val;
+                    });
+                  },
+                ),
               ],
             ),
+          ),
+          MakeAnAppointmentBtn(
+            text: currentPageIndex == phasesOfAppointList.length - 1
+                ? 'Book Now'
+                : 'Continue',
+            onPressed: () {
+              if (currentPageIndex == phasesOfAppointList.length - 1) {
+                // context.pushNamed(routeName)
+              } else {
+                pageViewController.nextPage(
+                    duration: const Duration(milliseconds: 30),
+                    curve: Curves.easeIn);
+              }
+            },
           )
         ],
       ),
