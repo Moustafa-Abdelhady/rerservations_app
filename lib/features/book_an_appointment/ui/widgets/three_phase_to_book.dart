@@ -18,15 +18,16 @@ class ThreePhasesToBookAppoint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FittedBox(
+      fit: BoxFit.fill,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.w),
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: SizedBox(
-            width: 85.w,
+            width: 100.w,
             child: Column(
               children: [
                 Container(
-                  width: 32.w,
-                  height: 32.h,
+                  width: 33.w,
+                  height: 33.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.r),
                     color: color,

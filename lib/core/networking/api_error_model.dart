@@ -21,7 +21,7 @@ class ApiErrorModel {
 
   //// returns a string containing all the errors messages.
 
-  String getAllErrorMessages() {
+  dynamic getAllErrorMessages() {
     if (errors == null || errors is List && (errors as List).isEmpty) {
       return message ?? "Unknown Error occurred";
     }

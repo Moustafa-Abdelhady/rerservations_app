@@ -11,7 +11,7 @@ class BookAppointmentView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 12, left: 16, right: 16),
+          padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
           child: BookAppointmentBody(
             doctorInfo: doctorInfo,
           ),
