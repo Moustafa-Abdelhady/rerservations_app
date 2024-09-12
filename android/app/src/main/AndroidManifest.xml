@@ -9,7 +9,7 @@
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyDhJgcoaGD7Iioxyjgmao9M8R9V7JMnpWA"/>
+               android:value="AIzaSyCk4wFIF-Y3VpNEXw1YvWzQPqD6jLC0_WU"/>
         <uses-library android:name="org.apache.http .legacy"
          android:required="false"/>
         <activity
