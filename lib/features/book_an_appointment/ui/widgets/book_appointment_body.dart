@@ -107,4 +107,10 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
       ),
     );
   }
+
+  @override
+  void dispose() {
+    pageViewController.dispose();
+    super.dispose();
+  }
 }
