@@ -5,6 +5,7 @@ import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/date_and_time_widgets/date_and_time_page.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/payment_screens/payment_screen.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/phases_list_view.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/summary_page.dart/summary_screen.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/three_phase_to_book.dart';
 import 'package:reservations_app/features/doctor_details/ui/widgets/make_an_appoint_btn.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
@@ -86,6 +87,7 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
                     });
                   },
                 ),
+                const SummaryPage()
               ],
             ),
           ),
