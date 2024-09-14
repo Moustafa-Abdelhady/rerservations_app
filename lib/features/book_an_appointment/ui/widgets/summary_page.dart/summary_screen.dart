@@ -3,21 +3,25 @@ import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/themes/styles.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/summary_page.dart/appoint_info_item.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/widgets/summary_page.dart/payment_information_list_tile.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
 class SummaryPage extends StatelessWidget {
-  const SummaryPage(
-      {super.key,
-      this.selectedDateTime,
-      this.note,
-      this.doctor,
-      this.docImage,
-      this.rating,
-      this.paymentCost});
+  const SummaryPage({
+    super.key,
+    this.selectedDateTime,
+    this.note,
+    this.doctor,
+    this.docImage,
+    this.rating,
+    this.paymentCost,
+    this.specializationData,
+  });
 
   final DateTime? selectedDateTime;
   final String? note;
   final Doctors? doctor;
+  final SpecializationData? specializationData;
   final String? docImage;
   final String? rating;
   final String? paymentCost;
@@ -62,6 +66,81 @@ class SummaryPage extends StatelessWidget {
             'Booking Information',
             style: TextStyles.font15DarkBlueBold,
           ),
+          verticalSpace(16),
+          Row(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+                clipBehavior: Clip.antiAlias,
+                child: Image.asset(
+                  docImage ?? 'assets/images/doctor1.png',
+                  fit: BoxFit.cover,
+                  height: 70,
+                  width: 70,
+                ),
+              ),
+              horizontalSpace(16),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    doctor?.name ?? 'Lucious Ebert',
+                    style:
+                        TextStyles.font15DarkBlueMeduim.copyWith(fontSize: 17),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  verticalSpace(3),
+                  Text(
+                    specializationData?.name ?? 'consultant',
+                    style: TextStyles.font15GreyRegular,
+                  ),
+                  verticalSpace(3),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.amber[400],
+                        size: 18,
+                      ),
+                      horizontalSpace(7),
+                      Text(
+                        rating ?? '4.5',
+                        style: TextStyles.font15GreyRegular,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          verticalSpace(30),
+          Text(
+            'Payment Information',
+            style: TextStyles.font15DarkBlueBold,
+          ),
+          verticalSpace(24),
+          PaymentInformationListTile(
+            title: paymentCost ?? 'Not Selected',
+            subTitle: '**** **** **** 3122',
+            image: 'assets/svgs/mastercard.svg',
+            btnText: 'Change',
+            backGroundColor: const Color(0xffF1F1F1),
+          ),
+          verticalSpace(30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Payment Total',
+                style: TextStyles.font15DarkBlueBold,
+              ),
+              Text(
+                '\$${doctor?.price}' ?? '\$ 200',
+                style: TextStyles.font15DarkBlueMeduim.copyWith(fontSize: 16),
+              )
+            ],
+          )
         ],
       ),
     );

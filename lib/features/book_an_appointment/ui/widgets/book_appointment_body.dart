@@ -87,7 +87,14 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
                     });
                   },
                 ),
-                const SummaryPage()
+                SummaryPage(
+                  selectedDateTime: selectDateTime,
+                  note: noteThis,
+                  doctor: widget.doctorInfo,
+                  docImage: widget.doctorInfo?.photo,
+                  paymentCost: paymentMethod,
+                  rating: '4.8',
+                )
               ],
             ),
           ),
