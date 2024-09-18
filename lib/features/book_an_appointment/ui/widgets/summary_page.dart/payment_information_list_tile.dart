@@ -46,11 +46,15 @@ class PaymentInformationListTile extends StatelessWidget {
       trailing: TextButton(
         onPressed: () {},
         style: ButtonStyle(
-            backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
-            elevation: const WidgetStatePropertyAll(0),
-            shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                borderRadius: BorderRadiusDirectional.circular(46),
-                side: const BorderSide(color: ColorsManager.mainBlue)))),
+          backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
+          elevation: const WidgetStatePropertyAll(0),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadiusDirectional.circular(50),
+              side: const BorderSide(color: ColorsManager.mainBlue),
+            ),
+          ),
+        ),
         child: Text(
           btnText ?? '',
           style: TextStyles.font12BlueRegular,
