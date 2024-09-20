@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/widgets/book_appointment_body.dart';
 import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 
@@ -11,7 +12,7 @@ class BookAppointmentView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+          padding: EdgeInsets.only(left: 12.w, right: 12.w),
           child: BookAppointmentBody(
             doctorInfo: doctorInfo,
           ),

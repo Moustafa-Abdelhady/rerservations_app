@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/di_dependency/dependency_injection.dart';
 import 'package:reservations_app/core/routing/routes.dart';
+import 'package:reservations_app/features/book_an_appointment/logic/make_an_appoint_cubit/make_an_appoint_cubit.dart';
+import 'package:reservations_app/features/book_an_appointment/ui/book_appoint_details.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/book_appointment_view.dart';
 import 'package:reservations_app/features/doctor_details/ui/doctor_details_screen.dart';
 import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
@@ -55,7 +57,15 @@ class AppRouter {
       case Routes.bookAppointment:
         return MaterialPageRoute(
           settings: RouteSettings(arguments: arguments),
-          builder: (_) => const BookAppointmentView(),
+          builder: (_) => BlocProvider(
+            create: (context) => MakeAnAppointCubit(getIt()),
+            child: const BookAppointmentView(),
+          ),
+        );
+      case Routes.bookAppointmentDetails:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const BookAppointDetails(),
         );
 
       default:

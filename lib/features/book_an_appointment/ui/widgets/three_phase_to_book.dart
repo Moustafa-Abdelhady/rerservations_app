@@ -21,37 +21,35 @@ class ThreePhasesToBookAppoint extends StatelessWidget {
       fit: BoxFit.fill,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: SizedBox(
-            width: 100.w,
-            child: Column(
-              children: [
-                Container(
-                  width: 33.w,
-                  height: 33.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.r),
-                    color: color,
-                  ),
-                  child: Center(
-                    child: Text(
-                      number,
-                      style: TextStyles.font13DarkBlueregular.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ),
+        child: Column(
+          children: [
+            Container(
+              width: 33.w,
+              height: 33.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16.r),
+                color: color,
+              ),
+              child: Center(
+                child: Text(
+                  number,
+                  style: TextStyles.font13DarkBlueregular.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
                   ),
                 ),
-                verticalSpace(8),
-                Text(
-                  text,
-                  style: TextStyles.font13DarkBlueregular.copyWith(
-                    color: textColor ?? ColorsManager.darkBlue,
-                  ),
-                  textAlign: TextAlign.center,
-                )
-              ],
-            )),
+              ),
+            ),
+            verticalSpace(8),
+            Text(
+              text,
+              style: TextStyles.font13DarkBlueregular.copyWith(
+                color: textColor ?? ColorsManager.darkBlue,
+              ),
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
       ),
     );
   }

@@ -114,12 +114,12 @@ class SummaryPage extends StatelessWidget {
               ),
             ],
           ),
-          verticalSpace(30),
+          verticalSpace(20),
           Text(
             'Payment Information',
             style: TextStyles.font15DarkBlueBold,
           ),
-          verticalSpace(24),
+          verticalSpace(20),
           PaymentInformationListTile(
             title: paymentCost ?? 'Not Selected',
             subTitle: '**** **** **** 3122',
@@ -127,7 +127,7 @@ class SummaryPage extends StatelessWidget {
             btnText: 'Change',
             backGroundColor: const Color(0xffF1F1F1),
           ),
-          verticalSpace(30),
+          verticalSpace(20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -138,9 +138,10 @@ class SummaryPage extends StatelessWidget {
               Text(
                 '\$${doctor?.price}' ?? '\$ 200',
                 style: TextStyles.font15DarkBlueMeduim.copyWith(fontSize: 16),
-              )
+              ),
             ],
-          )
+          ),
+          verticalSpace(10),
         ],
       ),
     );
