@@ -27,7 +27,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.specializationError(apiErrorModel));
       });
     } on Exception catch (e) {
-      print(e);
+      print(e.toString());
     }
   }
 
