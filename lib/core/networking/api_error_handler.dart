@@ -23,7 +23,7 @@ class ApiErrorHandler {
           return ApiErrorModel(
               message: "Receive timeout in connection with the server");
         case DioExceptionType.badResponse:
-          return _handleError(error.response?.data);
+          return _handleError(error.response?.data.toString());
         case DioExceptionType.sendTimeout:
           return ApiErrorModel(
               message: "Send timeout in connection with the server");
@@ -39,7 +39,7 @@ class ApiErrorHandler {
 
 ApiErrorModel _handleError(dynamic data) {
   return ApiErrorModel(
-    message: data['message'] ?? "Unknown error occurred",
+    message: data['message'].toString() ?? "Unknown error occurred",
     code: data['code'],
     errors: data['data'],
   );

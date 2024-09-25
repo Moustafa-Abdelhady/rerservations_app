@@ -73,28 +73,27 @@ class BookAppointDetailsBody extends StatelessWidget {
             Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadiusDirectional.circular(12),
-                  child: Image.asset(
-                    docDetails?['docImage'] ?? 'assets/images/doctor1.png',
-                    fit: BoxFit.cover,
-                    height: 80,
-                    width: 80,
-                  ),
-                ),
+                    borderRadius: BorderRadiusDirectional.circular(12),
+                    child: Image.network(
+                      width: 70,
+                      height: 70,
+                      docDetails?['docImage'] == 'female'
+                          ? "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain"
+                          : "https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-isolated-white-background-handsome-model-portrait-31871541.jpg",
+                    )),
                 horizontalSpace(16),
                 Expanded(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'ooooooooo',
-                        // docDetails?['doctorInfo']['name'],
+                        docDetails?['doctorName'],
                         style: TextStyles.font15DarkBlueMeduim,
                         overflow: TextOverflow.ellipsis,
                       ),
                       verticalSpace(8),
                       Text(
-                        'dooooooooooo',
-                        // '${docDetails?['doctorInfo']['specialization']  | docDetails?['doctorInfo']['degree']} ',
+                        '${docDetails?['doctorInfo']} ',
                         style: TextStyles.font13DarkBlueregular,
                         overflow: TextOverflow.ellipsis,
                       ),

@@ -73,8 +73,8 @@ class SummaryPage extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(12)),
                   clipBehavior: Clip.antiAlias,
                   child: Image.network(
-                    width: 70,
-                    height: 70,
+                    width: 60,
+                    height: 60,
                     doctor?.gender == 'female'
                         ? "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain"
                         : "https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-isolated-white-background-handsome-model-portrait-31871541.jpg",

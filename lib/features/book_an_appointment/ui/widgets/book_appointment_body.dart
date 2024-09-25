@@ -60,8 +60,9 @@ class _BookAppointmentBodyState extends State<BookAppointmentBody>
               arguments: {
                 'selectedDateTime': selectDateTime,
                 'note': noteThis,
-                'doctorInfo': widget.doctorInfo,
-                'docImage': widget.doctorInfo?.photo,
+                'doctorInfo': widget.doctorInfo?.degree,
+                'doctorName': widget.doctorInfo?.name,
+                'docImage': widget.doctorInfo?.gender,
                 'rating': '4.8',
               },
             );
