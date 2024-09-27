@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reservations_app/bottom_navigation_bar.dart';
+import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -11,18 +14,20 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            CustomAppBarWidget(
+            const CustomAppBarWidget(
               text: 'Search about Doctors',
-            )
+            ),
+            verticalSpace(20),
           ],
         ),
       )),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

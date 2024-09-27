@@ -12,6 +12,8 @@ import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.da
 import 'package:reservations_app/features/login/ui/login_screen.dart';
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reservations_app/features/profile_page/profile_page.dart';
+import 'package:reservations_app/features/search_screen/search_screen.dart';
 import 'package:reservations_app/features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:reservations_app/features/signup/ui/signup_screen.dart';
 
@@ -66,6 +68,16 @@ class AppRouter {
         return MaterialPageRoute(
           settings: RouteSettings(arguments: arguments),
           builder: (_) => const BookAppointDetails(),
+        );
+      case Routes.searchScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const SearchScreen(),
+        );
+      case Routes.profileScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const ProfilePage(),
         );
 
       default:
