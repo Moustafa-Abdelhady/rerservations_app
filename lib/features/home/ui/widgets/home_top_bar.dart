@@ -51,10 +51,15 @@ class _HomeTopBarState extends State<HomeTopBar> {
         CircleAvatar(
           backgroundColor: ColorsManager.buttonLighterGrey,
           radius: 24,
-          child: SvgPicture.asset(
-            'assets/svgs/notfication_bill.svg',
-            fit: BoxFit.fill,
-            width: 25.w,
+          child: GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.searchScreen);
+            },
+            child: SvgPicture.asset(
+              'assets/svgs/notfication_bill.svg',
+              fit: BoxFit.fill,
+              width: 25.w,
+            ),
           ),
         ),
         horizontalSpace(10),
