@@ -8,4 +8,6 @@ class Routes {
   static const String bookAppointmentDetails = '/bookAppointmentDetails';
   static const String searchScreen = '/searchScreen';
   static const String profileScreen = '/profileScreen';
+  static const String myAppointment = '/myAppointment';
+  static const String bottomNavigationBarView = '/bottomNavigationBarView';
 }

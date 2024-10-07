@@ -15,16 +15,17 @@ class DoctorsListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.h),
+      margin: EdgeInsets.only(bottom: 12.h),
       decoration: BoxDecoration(
         color: ColorsManager.lightBlue,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CachedNetworkImage(
             width: 110.w,
-            height: 120.h,
+            height: 110.h,
             imageUrl: doctorsModel!.gender == 'female'
                 ? "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain"
                 : "https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-isolated-white-background-handsome-model-portrait-31871541.jpg",
@@ -35,7 +36,7 @@ class DoctorsListViewItem extends StatelessWidget {
                 highlightColor: Colors.white,
                 child: Container(
                   width: 110.w,
-                  height: 120.h,
+                  height: 110.h,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(12.0),
@@ -46,7 +47,7 @@ class DoctorsListViewItem extends StatelessWidget {
             },
             imageBuilder: (context, imageProvider) => Container(
               width: 110.w,
-              height: 120.h,
+              height: 110.h,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(12.0),
@@ -68,8 +69,9 @@ class DoctorsListViewItem extends StatelessWidget {
           //   ),
           // ),
           horizontalSpace(16),
-          Expanded(
-              child: Column(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 doctorsModel?.name ?? 'Dr.Randy Wigham',
@@ -88,7 +90,7 @@ class DoctorsListViewItem extends StatelessWidget {
                 style: TextStyles.font13greyMeduim,
               ),
             ],
-          )),
+          ),
         ],
       ),
     );
