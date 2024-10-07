@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reservations_app/bottom_navigation_bar.dart';
 
 import 'package:reservations_app/core/helpers/spaces.dart';
 
@@ -15,13 +14,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Container(
-          width: double
-              .infinity, // this is cause i will make a column and the column takes full heigh by default but not takes full width
-          margin: const EdgeInsets.fromLTRB(20, 16, 20, 20),
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,8 +29,6 @@ class HomeScreen extends StatelessWidget {
               const SetupSpecializationBlocBuilder(),
               verticalSpace(8),
               const DoctorsBlocBuilder(),
-              verticalSpace(5),
-              const BottomNavBar()
             ],
           ),
         ),

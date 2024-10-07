@@ -28,8 +28,8 @@ class SetupSpecializationBlocBuilder extends StatelessWidget {
             specializationError: (errorHandler) => setupFailure(),
             orElse: () {
               return const SizedBox(
-                width: 300,
-                height: 300,
+                width: 250,
+                height: 250,
                 child: Center(
                   child: Text('There\'s an Error'),
                 ),

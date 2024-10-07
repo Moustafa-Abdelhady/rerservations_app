@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class MyAppointView extends StatelessWidget {
+  const MyAppointView({super.key});
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -18,7 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           children: [
             CustomAppBarWidget(
-              text: 'Profile',
+              text: 'My Appoint',
             ),
           ],
         ),

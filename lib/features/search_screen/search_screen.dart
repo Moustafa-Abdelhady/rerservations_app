@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reservations_app/bottom_navigation_bar.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 
@@ -27,7 +25,6 @@ class _SearchScreenState extends State<SearchScreen> {
           ],
         ),
       )),
-      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

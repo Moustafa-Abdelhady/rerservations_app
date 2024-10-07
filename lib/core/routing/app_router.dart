@@ -4,12 +4,14 @@ import 'package:reservations_app/core/routing/routes.dart';
 import 'package:reservations_app/features/book_an_appointment/logic/make_an_appoint_cubit/make_an_appoint_cubit.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/book_appoint_details.dart';
 import 'package:reservations_app/features/book_an_appointment/ui/book_appointment_view.dart';
+import 'package:reservations_app/features/bottom_navigation_bar/bottom_nav_bar_widget.dart';
 import 'package:reservations_app/features/doctor_details/ui/doctor_details_screen.dart';
 import 'package:reservations_app/features/home/logic/home_cubit/home_cubit.dart';
 import 'package:reservations_app/features/home/ui/home_screen.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
 
 import 'package:reservations_app/features/login/ui/login_screen.dart';
+import 'package:reservations_app/features/my_appointment_screen/my_appoint_view.dart';
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservations_app/features/profile_page/profile_page.dart';
@@ -42,6 +44,11 @@ class AppRouter {
             create: (context) => getIt<SignupCubit>(),
             child: const SignupScreen(),
           ),
+        );
+
+      case Routes.bottomNavigationBarView:
+        return MaterialPageRoute(
+          builder: (_) => const BottomNavBarWidget(),
         );
 
       case Routes.homeScreen:
@@ -78,6 +85,11 @@ class AppRouter {
         return MaterialPageRoute(
           settings: RouteSettings(arguments: arguments),
           builder: (_) => const ProfilePage(),
+        );
+      case Routes.myAppointment:
+        return MaterialPageRoute(
+          settings: RouteSettings(arguments: arguments),
+          builder: (_) => const MyAppointView(),
         );
 
       default:
