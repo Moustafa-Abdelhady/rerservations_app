@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
+import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -21,7 +22,24 @@ class _SearchScreenState extends State<SearchScreen> {
             const CustomAppBarWidget(
               text: 'Search about Doctors',
             ),
-            verticalSpace(20),
+            verticalSpace(30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SearchBar(
+                // controller: ,
+                onChanged: (val) {},
+                trailing: const [
+                  Icon(
+                    Icons.search,
+                    color: ColorsManager.mainBlue,
+                    size: 35,
+                  ),
+                ],
+                hintText: 'Search about Doctor you need ',
+                backgroundColor: WidgetStateColor.resolveWith(
+                    (states) => ColorsManager.lightBlue),
+              ),
+            )
           ],
         ),
       )),
