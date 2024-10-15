@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
+import 'package:reservations_app/core/routing/app_router.dart';
 import 'package:reservations_app/core/themes/app_colors.dart';
 import 'package:reservations_app/core/widgets/custom_app_bar.dart';
+import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
+import 'package:reservations_app/features/search_screen/logic/search_cubit/search_cubit.dart';
+import 'package:reservations_app/features/search_screen/ui/widgets/search_screen_item.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -11,8 +16,12 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  List<Doctors>? doctors;
+  final _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var debounce = context.read<SearchCubit>().debounce;
+
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -39,10 +48,20 @@ class _SearchScreenState extends State<SearchScreen> {
                 backgroundColor: WidgetStateColor.resolveWith(
                     (states) => ColorsManager.lightBlue),
               ),
+            ),
+            verticalSpace(30),
+            SearchItem(
+              doctors: doctors!,
             )
           ],
         ),
       )),
     );
+  }
+
+  @override
+  void dispose() {
+    BlocProvider.of<SearchCubit>(context).clearSearchResult();
+    super.dispose();
   }
 }

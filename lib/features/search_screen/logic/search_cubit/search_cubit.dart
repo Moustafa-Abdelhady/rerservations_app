@@ -28,6 +28,7 @@ class SearchCubit extends Cubit<SearchState> {
           emit(SearchState.searchSuccess(doctors));
         } else {
           emit(const SearchState.noResult());
+          clearSearchResult();
         }
       }, failure: (apiErrorModel) {
         emit(SearchState.searchFailure(apiErrorModel));
