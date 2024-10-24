@@ -8,6 +8,8 @@ import 'package:reservations_app/features/home/data/apis/home_api_services.dart'
 import 'package:reservations_app/features/home/data/repos/home_repos.dart';
 import 'package:reservations_app/features/login/data/reposatory/login_repo.dart';
 import 'package:reservations_app/features/login/logic/login_cubit/login_cubit.dart';
+import 'package:reservations_app/features/search_screen/data/apis/search_api_service.dart';
+import 'package:reservations_app/features/search_screen/data/repos/search_repo.dart';
 import 'package:reservations_app/features/signup/data/reposatory/signup_repo.dart';
 import 'package:reservations_app/features/signup/logic/signup_cubit/signup_cubit.dart';
 
@@ -40,4 +42,8 @@ Future<void> setUpGetIt() async {
   getIt.registerLazySingleton<MakeAppointApiService>(
       () => MakeAppointApiService(dio));
   getIt.registerLazySingleton<MakeAppointRepo>(() => MakeAppointRepo(getIt()));
+
+  // searchScreen
+  getIt.registerLazySingleton<SearchApiService>(() => SearchApiService(dio));
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo(getIt()));
 }

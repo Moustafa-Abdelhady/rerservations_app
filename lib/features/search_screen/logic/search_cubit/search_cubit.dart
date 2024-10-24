@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:reservations_app/core/networking/api_error_model.dart';
+import 'package:reservations_app/features/home/data/models/spcialization_response.dart';
 import 'package:reservations_app/features/search_screen/data/repos/search_repo.dart';
 import 'package:reservations_app/features/search_screen/logic/search_cubit/search_state.dart';
 
@@ -23,12 +24,28 @@ class SearchCubit extends Cubit<SearchState> {
     try {
       emit(const SearchState.searchLoading());
       final response = await _searchRepo.searchDoctor(doctorName);
-      response.when(success: (doctors) {
-        if (doctors.isNotEmpty && doctors != null) {
-          emit(SearchState.searchSuccess(doctors));
+      response.when(success: (data) {
+        print(';;;');
+        if (data is Map<String, dynamic> || data['data'] != null) {
+          print(';;;;;');
+          if (data['data'] is List) {
+            List<Doctors> doctors = (data['data'] as List)
+                .map((doctorJson) => Doctors.fromJson(doctorJson))
+                .toList();
+            print('....');
+            if (doctors.isNotEmpty) {
+              emit(SearchState.searchSuccess(doctors));
+              print('........');
+            } else {
+              emit(const SearchState.noResult());
+              print('...;;;;');
+              // clearSearchResult();
+            }
+          }
         } else {
+          print(';;;;;;;');
           emit(const SearchState.noResult());
-          clearSearchResult();
+          // clearSearchResult();
         }
       }, failure: (apiErrorModel) {
         emit(SearchState.searchFailure(apiErrorModel));
@@ -39,10 +56,9 @@ class SearchCubit extends Cubit<SearchState> {
     }
   }
 
-  @override
   Future<void> clearSearchResult() {
     debounce?.cancel(); // Cancel debounce when cubit is disposed
-    emit(const SearchState.searchSuccess([]));
+    emit(const SearchState.noResult());
     return super.close();
   }
 }
