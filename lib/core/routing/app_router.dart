@@ -15,6 +15,7 @@ import 'package:reservations_app/features/my_appointment_screen/my_appoint_view.
 import 'package:reservations_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reservations_app/features/profile_page/profile_page.dart';
+import 'package:reservations_app/features/search_screen/logic/search_cubit/search_cubit.dart';
 import 'package:reservations_app/features/search_screen/ui/widgets/search_screen.dart';
 import 'package:reservations_app/features/signup/logic/signup_cubit/signup_cubit.dart';
 import 'package:reservations_app/features/signup/ui/signup_screen.dart';
@@ -79,7 +80,10 @@ class AppRouter {
       case Routes.searchScreen:
         return MaterialPageRoute(
           settings: RouteSettings(arguments: arguments),
-          builder: (_) => const SearchScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => SearchCubit(getIt()),
+            child: const SearchScreen(),
+          ),
         );
       case Routes.profileScreen:
         return MaterialPageRoute(

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reservations_app/core/helpers/extentions.dart';
 import 'package:reservations_app/core/helpers/spaces.dart';
@@ -19,8 +18,8 @@ class SearchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(children: [
-        ...List.generate(doctors!.length, (index) {
-          var doctor = doctors![index];
+        ...List.generate(doctors?.length ?? 0, (index) {
+          var doctor = doctors?[index];
           return GestureDetector(
             onTap: () {
               context.pushNamed(Routes.doctorDetails, arguments: doctor);
@@ -33,7 +32,7 @@ class SearchItem extends StatelessWidget {
                   CachedNetworkImage(
                     width: 110.w,
                     height: 110.h,
-                    imageUrl: doctor.gender == 'female'
+                    imageUrl: doctor?.gender == 'female'
                         ? "https://th.bing.com/th/id/OIP.sIMaRhEHogXQcRyPIRNyMQHaLI?w=2307&h=3467&rs=1&pid=ImgDetMain"
                         : "https://thumbs.dreamstime.com/b/indian-doctor-mature-male-medical-standing-isolated-white-background-handsome-model-portrait-31871541.jpg",
                     // fit: BoxFit.contain,
@@ -82,19 +81,19 @@ class SearchItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        doctor.name ?? 'Dr.Randy Wigham',
+                        doctor?.name ?? 'Dr.Randy Wigham',
                         style: TextStyles.font18BlueSemiBold,
                         overflow: TextOverflow.ellipsis,
                       ),
                       verticalSpace(5),
                       Text(
-                        '${doctor.degree} | ${doctor.phone}' ??
+                        '${doctor?.degree} | ${doctor?.phone}' ??
                             'General   |   RSUD Gatot Subroto',
                         style: TextStyles.font13greyMeduim,
                       ),
                       verticalSpace(5),
                       Text(
-                        doctor.email ?? 'Email@gmail.com',
+                        doctor?.email ?? 'Email@gmail.com',
                         style: TextStyles.font13greyMeduim,
                       ),
                     ],
